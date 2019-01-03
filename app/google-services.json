@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "924485589640",
+    "firebase_url": "https://frequency-club.firebaseio.com",
+    "project_id": "frequency-club",
+    "storage_bucket": "frequency-club.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924485589640:android:a6b405abbec72312",
+        "android_client_info": {
+          "package_name": "com.example.premal2.frequencyclub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924485589640-oc2hjtpaoldpaa3oduuqdbsf55113n6q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.premal2.frequencyclub",
+            "certificate_hash": "25493ec25f65db75c2cb38f66b6eb6282d4ce4da"
+          }
+        },
+        {
+          "client_id": "924485589640-a0vtl84m4r9mtaurmhud25vv99vshp15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD791O9kOcTUNzb2bGOupYAQ92kqMtO-6w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924485589640-a0vtl84m4r9mtaurmhud25vv99vshp15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
