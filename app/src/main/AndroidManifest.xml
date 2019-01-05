@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.premal2.frequencyclub">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,34 +16,84 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signin" />
-        <activity android:name=".Firsttimelogin" />
-        <activity android:name=".mainpage" />
-        <activity android:name=".Accountpage" />
+        <activity android:name=".signin"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Firsttimelogin"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".mainpage"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Accountpage"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".Aboutpage"
             android:label="@string/title_activity_aboutpage"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".aboutpg" />
-        <activity android:name=".Notificationspage"></activity>
-        <service android:name=".FirebaseInstanceIDService">
+        <activity android:name=".aboutpg"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Notificationspage"
+            android:screenOrientation="portrait"
+            />
+
+        <service android:name=".MyInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"></action>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".MyFirebaseMessagingService">
+        <service
+            android:name=".RegistrationIntentService"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.example.premal2.frequencyclub" />
             </intent-filter>
-        </service>
+        </receiver>
+
+        <activity android:name=".general_home"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".aboutus_general"
+            android:label="@string/title_activity_aboutus_general"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".theaboutgeneral"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Workshop_Registration"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Workshop_Registration2"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".TicketConfirmation"
+            android:screenOrientation="portrait"
+            ></activity>
     </application>
 
 </manifest>

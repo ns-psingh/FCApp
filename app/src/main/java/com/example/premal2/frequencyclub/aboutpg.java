@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class aboutpg extends AppCompatActivity {
 
@@ -25,7 +26,29 @@ public class aboutpg extends AppCompatActivity {
         TextView userpost=(TextView) findViewById(R.id.userpost);
         userfull.setText(Accountpage.name);
         userpost.setText(Accountpage.post);
+        TextView events=(TextView) findViewById(R.id.eventbtn);
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(aboutpg.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        TextView projects=(TextView) findViewById(R.id.projectbtn);
+        projects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(aboutpg.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
+            }
+        });
         TextView homepage=(TextView) findViewById(R.id.hometext);
+        TextView notificationbtn=(TextView) findViewById(R.id.notifcationbtn);
+        notificationbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(aboutpg.this,Notificationspage.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
         homepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +97,7 @@ public class aboutpg extends AppCompatActivity {
         github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String facebookPageUrl = "https://github.com/premalsingh/rvceconnect";
+                String facebookPageUrl = "https://github.com/Frequency-Club-RVCE";
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookPageUrl));
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

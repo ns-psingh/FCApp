@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -20,6 +22,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -42,6 +46,8 @@ public class mainpage extends AppCompatActivity {
     TextView userfullname;
     TextView userpost;
     TextView accountbtn;
+    EditText newsfromuser;
+    Button sharebtn;
     public void onBackPressed(){
     }
     ProgressBar loading;
@@ -53,12 +59,31 @@ public class mainpage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_mainpage);
         if(MainActivity.flag==0) {
-           // Toast.makeText(mainpage.this, "Signed in as " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(mainpage.this, "Signed in as " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+        //  Log.d("e",mAuth.getCurrentUser().getEmail()+"is currently logged in");
         MainActivity.flag=1;
         }
         loading=(ProgressBar) findViewById(R.id.loading);
         loading.setVisibility(View.VISIBLE);
-
+        newsfromuser=(EditText) findViewById(R.id.newsfromuser);
+        sharebtn=(Button) findViewById(R.id.sharebtn);
+        sharebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(newsfromuser.getText().toString().equals(""))
+                {
+                    Toast.makeText(mainpage.this, "Please fill the field to submit.", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Map<String,Object> notif=new HashMap<>();
+                    notif.put("News",newsfromuser.getText().toString());
+                    notif.put("Sender",mAuth.getCurrentUser().getEmail());
+                    String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(System.currentTimeMillis());
+                    db.collection("stories").document(timeStamp).set(notif);
+                }
+            }
+        });
          heading1=(TextView) findViewById(R.id.heading1);
         heading2=(TextView) findViewById(R.id.heading2);
         heading3=(TextView) findViewById(R.id.heading3);
@@ -213,7 +238,7 @@ public class mainpage extends AppCompatActivity {
         github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String facebookPageUrl = "https://github.com/premalsingh/rvceconnect";
+                String facebookPageUrl = "https://github.com/Frequency-Club-RVCE";
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookPageUrl));
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

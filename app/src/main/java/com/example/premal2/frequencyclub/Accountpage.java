@@ -40,6 +40,42 @@ public class Accountpage extends AppCompatActivity {
         TextView userpost=(TextView) findViewById(R.id.userpost);
         userfull.setText(name);
         userpost.setText(post);
+        Button attendancebtn=(Button) findViewById(R.id.attendancebtn);
+        attendancebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        Button viewattendance=(Button) findViewById(R.id.viewdaybtn);
+        viewattendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        TextView events=(TextView) findViewById(R.id.eventbtn);
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        TextView projects=(TextView) findViewById(R.id.projectbtn);
+        projects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        TextView notificationbtn=(TextView) findViewById(R.id.notifcationbtn);
+        notificationbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Accountpage.this,Notificationspage.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +99,7 @@ public class Accountpage extends AppCompatActivity {
         github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String facebookPageUrl = "https://github.com/premalsingh/rvceconnect";
+                String facebookPageUrl = "https://github.com/Frequency-Club-RVCE";
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookPageUrl));
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

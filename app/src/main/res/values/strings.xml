@@ -15,4 +15,5 @@
     </string>
     <string name="title_activity_homescreen">Homescreen</string>
     <string name="title_activity_aboutpage">Aboutpage</string>
+    <string name="title_activity_aboutus_general">aboutus_general</string>
 </resources>

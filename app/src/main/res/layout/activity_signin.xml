@@ -48,12 +48,12 @@
         android:textColor="@color/colorAccent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/skipbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="11dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="322dp"
         android:text="Skip Signing in"
         android:textColor="@color/colorAccent" />
@@ -65,7 +65,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
-        android:text="Login to Frequency Club"
+        android:text="Login to Frequency Club (only Club Members can login)"
         android:textColor="@color/colorAccent" />
 
     <ProgressBar

@@ -152,7 +152,7 @@
                     tools:text="Name:\nPost:\nUSN:\nDepartment:\nEmail ID:\nWhatsapp Number:\n" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/attendancebtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/info"
@@ -162,10 +162,10 @@
                     android:text="Take Attendance (Requires Password)" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/viewdaybtn"
                     android:layout_width="365dp"
                     android:layout_height="41dp"
-                    android:layout_alignStart="@+id/button"
+                    android:layout_alignStart="@+id/attendancebtn"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="336dp"
@@ -223,7 +223,7 @@
             android:textColor="@color/colorAccent" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/eventbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/notifcationbtn"
@@ -232,11 +232,11 @@
             android:textColor="@color/colorAccent" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/projectbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/notifcationbtn"
-            android:layout_toEndOf="@+id/textView16"
+            android:layout_toEndOf="@+id/eventbtn"
             android:text=" | Projects"
             android:textColor="@color/colorAccent" />
 
@@ -246,7 +246,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/notifcationbtn"
             android:layout_marginTop="0dp"
-            android:layout_toEndOf="@+id/textView17"
+            android:layout_toEndOf="@+id/projectbtn"
             android:text=" | About"
             android:textColor="@color/colorAccent" />
 

@@ -30,6 +30,19 @@ import java.util.Map;
 
 public class Firsttimelogin extends AppCompatActivity {
 
+    class r extends Thread
+    {
+        public void run()
+        {
+
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            startActivity(new Intent(Firsttimelogin.this, mainpage.class));
+        }
+    }
     String post;
     private FirebaseAuth mAuth;
     ProgressBar ftl;
@@ -97,6 +110,7 @@ public class Firsttimelogin extends AppCompatActivity {
                             user.put("dept", dept.getText().toString());
                             user.put("mobile", num.getText().toString());
                             Log.d("e", "works");
+                            Log.d("e","email id hai"+signin.email);
                             db.collection("users")
                                     .add(user)
                                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -107,9 +121,11 @@ public class Firsttimelogin extends AppCompatActivity {
                                             Toast.makeText(Firsttimelogin.this, "Account Created Successfully!", Toast.LENGTH_SHORT).show();
                                             Log.d("e", "Email id: " + signin.email + " Password: " + password1.getText().toString());
                                             mAuth.createUserWithEmailAndPassword(signin.email, password1.getText().toString());
-
+                                            r x=new r();
+                                            x.start();
                                              mAuth.signInWithEmailAndPassword(signin.email,password1.getText().toString());
-                                            startActivity(new Intent(Firsttimelogin.this, mainpage.class));
+
+
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {
