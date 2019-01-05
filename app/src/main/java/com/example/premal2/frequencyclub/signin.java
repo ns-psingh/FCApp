@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -46,7 +47,14 @@ public class signin extends AppCompatActivity {
         final Button signinbtn=(Button) findViewById(R.id.signinbtn);
         final EditText emaiilid=(EditText) findViewById(R.id.emailid_login);
         final EditText password=(EditText) findViewById(R.id.password_login);
-
+        TextView skipsignin=(TextView) findViewById(R.id.skipbtn);
+        skipsignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(signin.this,general_home.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +97,7 @@ public class signin extends AppCompatActivity {
                                                 Log.d("e","entered yaha pe "+emailid2);
                                                 email=emaiilid.getText().toString();
                                                 startActivity(new Intent(signin.this, Firsttimelogin.class));
+
 
                                             } else {
                                                 Log.d("e","entered yaha pe bhi "+emailid2);

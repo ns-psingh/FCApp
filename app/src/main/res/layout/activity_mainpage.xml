@@ -122,7 +122,6 @@
                     android:id="@+id/textView31"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/facebookbutton"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="2dp"
                     android:layout_marginTop="48dp"
@@ -317,7 +316,7 @@
             android:textColor="@color/colorAccent" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/eventbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/notifcationbtn"
@@ -326,11 +325,11 @@
             android:textColor="@color/colorAccent" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/projectbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/notifcationbtn"
-            android:layout_toEndOf="@+id/textView16"
+            android:layout_toEndOf="@+id/eventbtn"
             android:text=" | Projects"
             android:textColor="@color/colorAccent" />
 
@@ -339,7 +338,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/notifcationbtn"
-            android:layout_toEndOf="@+id/textView17"
+            android:layout_toEndOf="@+id/projectbtn"
             android:text=" | About"
             android:textColor="@color/colorAccent" />
 
