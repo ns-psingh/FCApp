@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class general_home extends AppCompatActivity {
 
@@ -44,8 +45,25 @@ public class general_home extends AppCompatActivity {
         workshopbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(general_home.this, Workshop_Registration.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                Log.d("e","happens");
+                if(MainActivity.recieved==-1)
+                {
+                    Log.d("e","happens2");
+                    Toast.makeText(general_home.this, "Unable to reach to our servers.", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Log.d("e","happens2"+MainActivity.enabled);
+                    if(MainActivity.enabled.equals("no"))
+                        Toast.makeText(general_home.this, "We are not accepting registrations right now.", Toast.LENGTH_SHORT).show();
+                    else if(MainActivity.count==MainActivity.limit)
+                        Toast.makeText(general_home.this, "Sorry, we are not accepting any more registrations at this moment.Kindly check again later.", Toast.LENGTH_SHORT).show();
+                    else
+                    {
+                        startActivity(new Intent(general_home.this, Workshop_Registration.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    }
+                }
             }
         });
         ImageView fb=(ImageView) findViewById(R.id.facebookbtn);
