@@ -1,6 +1,9 @@
 package com.example.premal2.frequencyclub;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,66 +36,36 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static MainActivity mainActivity;
-    public static Boolean isVisible = false;
-    private static final String TAG = "MainActivity";
-    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-
-
-    /**
-     * Check the device to make sure it has the Google Play Services APK. If
-     * it doesn't, display a dialog that allows users to download the APK from
-     * the Google Play Store or enable it in the device's system settings.
-     */
-
-    private boolean checkPlayServices() {
-        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
-        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
-        if (resultCode != ConnectionResult.SUCCESS) {
-            if (apiAvailability.isUserResolvableError(resultCode)) {
-                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
-                        .show();
-            } else {
-                Log.i(TAG, "This device is not supported by Google Play Services.");
-                ToastNotify("This device is not supported by Google Play Services.");
-                finish();
-            }
-            return false;
-        }
-        return true;
-    }
-    public void registerWithNotificationHubs()
-    {
-        if (checkPlayServices()) {
-            Log.d("e","donn");
-            // Start IntentService to register this application with FCM.
-            Intent intent = new Intent(this, RegistrationIntentService.class);
-            startService(intent);
-            Log.d("e","donn3");
-        }
-    }
-
     private String version="1.0.0";
     private FirebaseAuth mAuth;
     private FirebaseFirestore db=FirebaseFirestore.getInstance();
     public static int flag=0;
-    class T2 extends Thread
+
+        public static int recieved=-1;
+        public static String enabled="";
+        public static String event_name="";
+        public static String fee="";
+        public static int limit=0;
+        public static int count=0;
+        public static String thankyou="";
+        public int complete1=0;
+        public int complete2=0;
+        public static String limitthere="";
+
+    private boolean isOnline() //Function to check whether Internet is enabled
     {
-        public void run()
-        {
-            try
-            {
-                Thread.sleep(2000);
-            }
-            catch (InterruptedException e)
-            {
-                e.printStackTrace();
-            }
-            mainActivity = MainActivity.this;
-            Log.d("e","eee1");
-          //  NotificationsManager.handleNotifications(mainActivity, NotificationSettings.SenderId, MyHandler.class);
-            Log.d("e","eee2");
-            registerWithNotificationHubs();
+        Log.d("e","entered 2");
+        ConnectivityManager cm=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo=cm.getActiveNetworkInfo();
+        Log.d("e","entered 3");
+        if(netInfo!=null && netInfo.isConnectedOrConnecting())
+        { Log.d("e","entered 4");
+            return true;}
+        else
+        { Log.d("e","entered 5");
+           // Toast.makeText(MainActivity.this, "Communication Issues in connecting to our servers! Please check internet connection and restart the app!", Toast.LENGTH_SHORT).show();
+
+            return false;
         }
     }
     class T1 extends Thread
@@ -100,11 +73,85 @@ public class MainActivity extends AppCompatActivity {
         public void run()
         {
 
+            /*
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
+            }*/
+
+            recieved=-1;
+            enabled="";
+            event_name="";
+            fee="";
+            limit=0;
+            count=0;
+            thankyou="";
+            complete1=0;
+            complete2=0;
+            limitthere="";
+
+
+            final int count3=0;
+
+            db.collection("workshop_count")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if(task.isSuccessful())
+                            {
+                                Log.d("e","start hua");
+
+                                for(final DocumentSnapshot document: task.getResult())
+                                {
+                                    Map<String,Object> x=document.getData();
+                                    Set<Map.Entry<String,Object>> st=x.entrySet();
+                                    for(Map.Entry<String,Object> me:st)
+                                    {
+                                        if(me.getKey().equals("count"))
+                                            count=Integer.parseInt(me.getValue()+"");
+                                    }
+                                }
+                                Log.d("e","end hua"+count);
+                                complete1=1;
+                            }
+                        }
+                    });
+            db.collection("workshop_configurations")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if(task.isSuccessful())
+                            {
+                                Log.d("e","aya yahan pe");
+                                for(final DocumentSnapshot document: task.getResult())
+                            {
+                                Map<String,Object>x=document.getData();
+                                Set<Map.Entry<String,Object>> st=x.entrySet();
+                                for(Map.Entry<String,Object> me:st)
+                                {
+                                    Log.d("e",me.getKey()+"-"+me.getValue());
+                                    if(me.getKey().equals("enabled"))
+                                        enabled=me.getValue()+"";
+                                    if(me.getKey().equals("event name"))
+                                    { Log.d("e","hehehe"+me.getValue());
+                                        event_name=me.getValue()+"";}
+                                    if(me.getKey().equals("fee"))
+                                        fee=me.getValue()+"";
+                                    if(me.getKey().equals("limit"))
+                                        limit=Integer.parseInt(me.getValue()+"");
+                                    if(me.getKey().equals("thankyoumessage"))
+                                        thankyou=me.getValue()+"";
+                                    if(me.getKey().equals("limitcheck"))
+                                        limitthere=me.getValue()+"";
+                                }
+                                recieved=1;
+                            }}
+
+                        }
+                    });
             db.collection("version")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -117,9 +164,6 @@ public class MainActivity extends AppCompatActivity {
                                 Set<Map.Entry<String,Object>> st=x.entrySet();
                                 for(Map.Entry<String,Object> me:st)
                                 {
-                                    Log.d("e","iternation");
-                                    Log.d("e",me.getKey());
-                                    Log.d("e",me.getValue()+"");
                                     String vers=me.getValue()+"";
                                     if(!vers.equals(version))
                                     {
@@ -130,59 +174,27 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
+            Log.d("e","wait started");
+            while(complete1==0 || recieved==0)
+            Log.d("e","wait stopped");
             if(mAuth.getCurrentUser()!=null)
             {
-                Log.d("e","entered here");
+
                 startActivity(new Intent(MainActivity.this,mainpage.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
             else {
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 startActivity(new Intent(MainActivity.this, general_home.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         }
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        isVisible = true;
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        isVisible = false;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        isVisible = true;
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        isVisible = false;
-    }
-
-    public void ToastNotify(final String notificationMessage) {
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Log.d("e","worksout");
-                Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
-                TextView helloText = (TextView) findViewById(R.id.text_hello);
-                helloText.setText(notificationMessage);
-            }
-        });
-    }
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -193,23 +205,15 @@ public class MainActivity extends AppCompatActivity {
                 .init();
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        T2 t2=new T2();
-        t2.start();
-        Log.d("e","donw");
-
-        Log.d("e","donn4");
-
-
 
         mAuth=FirebaseAuth.getInstance();
-        Log.d("e","donn5");
-      //  Log.d("e",mAuth.getCurrentUser().getEmail());
-        T1 t=new T1();
-        t.start();
-        //TimeUnit.SECONDS.sleep(1);
+        if(isOnline())
+        { T1 t=new T1();
+        t.start();}
+        else
+        {
+             Toast.makeText(MainActivity.this, "Communication Issues in connecting to our servers! Please check internet connection and restart the app!", Toast.LENGTH_SHORT).show();
 
-
-
-        // DocumentReference documentReference=FirebaseFirestore.getInstance().collection("version").document("ver");
+        }
     }
 }
