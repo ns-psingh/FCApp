@@ -40,9 +40,6 @@ public class signin extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
         final ProgressBar loginprogress=(ProgressBar) findViewById(R.id.loginprocess);
         mAuth=FirebaseAuth.getInstance();
-        Log.d("e","start");
-//        Log.d("e",mAuth.getCurrentUser().getEmail());
-        Log.d("e","end");
         loginprogress.setVisibility(View.INVISIBLE);
         final Button signinbtn=(Button) findViewById(R.id.signinbtn);
         final EditText emaiilid=(EditText) findViewById(R.id.emailid_login);
@@ -94,13 +91,11 @@ public class signin extends AppCompatActivity {
 
                                             }
                                             if (flag == 1) {
-                                                Log.d("e","entered yaha pe "+emailid2);
                                                 email=emaiilid.getText().toString();
                                                 startActivity(new Intent(signin.this, Firsttimelogin.class));
 
 
                                             } else {
-                                                Log.d("e","entered yaha pe bhi "+emailid2);
                                                 loginprogress.setVisibility(View.INVISIBLE);
                                                 signinbtn.setVisibility(View.VISIBLE);
                                                 Toast.makeText(signin.this, "Sorry! Only Club Members can login to the app. If you're facing any issues, please write us at frequencyclub@gmail.com.", Toast.LENGTH_SHORT).show();
@@ -121,7 +116,6 @@ public class signin extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful())
                                 {
-                                    Log.d("e","success");
                                     finish();
                                     startActivity(new Intent(getApplicationContext(),mainpage.class));
                                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

@@ -18,7 +18,7 @@
         android:textColor="@color/colorPrimary" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/eventname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView18"
@@ -31,7 +31,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="216dp"
-        android:layout_below="@+id/textView22"
+        android:layout_below="@+id/eventname"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"

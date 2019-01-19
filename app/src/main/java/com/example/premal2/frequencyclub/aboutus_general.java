@@ -1,5 +1,6 @@
 package com.example.premal2.frequencyclub;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,10 @@ import android.view.View;
 
 public class aboutus_general extends AppCompatActivity {
 
+    public void onBackPressed(){
+        startActivity(new Intent(aboutus_general.this,general_home.class));
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -111,6 +111,20 @@ public class Firsttimelogin extends AppCompatActivity {
                             user.put("mobile", num.getText().toString());
                             Log.d("e", "works");
                             Log.d("e","email id hai"+signin.email);
+                            db.collection("unregistered_accounts").document(signin.email)
+                                    .delete()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d("e", "DocumentSnapshot successfully deleted!");
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.w("e", "Error deleting document", e);
+                                        }
+                                    });
                             db.collection("users")
                                     .add(user)
                                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

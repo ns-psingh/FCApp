@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Workshop_Registration extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class Workshop_Registration extends AppCompatActivity {
     EditText ETphone;
     EditText ETemail;
     EditText ETsem;
+    TextView eventname;
     public void onBackPressed(){
         startActivity(new Intent(Workshop_Registration.this,general_home.class));
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
@@ -31,6 +33,8 @@ public class Workshop_Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_workshop__registration);
+        eventname=(TextView) findViewById(R.id.eventname);
+        eventname.setText(MainActivity.event_name);
         ETname=(EditText) findViewById(R.id.name);
         ETphone=(EditText) findViewById(R.id.phonenum);
         ETemail=(EditText) findViewById(R.id.email);

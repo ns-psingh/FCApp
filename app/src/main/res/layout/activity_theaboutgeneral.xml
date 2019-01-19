@@ -210,7 +210,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/internet" />
+            app:srcCompat="@drawable/internet2" />
 
         <ImageView
             android:id="@+id/emailbtn"

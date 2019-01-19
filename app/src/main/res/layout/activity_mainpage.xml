@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,28 +13,44 @@
         android:layout_height="87dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/userfullname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fclub2" />
 
     <TextView
         android:id="@+id/userfullname"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="105dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="Premal Singh"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/userpost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/userpost"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_below="@+id/userfullname"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="153dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="Core Team Member"
         android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/userfullname"
         tools:text="Core Team Member" />
 
     <TextView
@@ -42,38 +58,59 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView3"
-        android:layout_marginStart="-1dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="6dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="2018-19"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/userpost"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.687" />
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="422dp"
         android:layout_alignEnd="@+id/userpost"
         android:layout_alignParentTop="true"
         android:layout_marginTop="88dp"
-        android:layout_marginEnd="-169dp"
-        android:background="@android:drawable/menu_full_frame">
+        android:layout_marginBottom="6dp"
+        android:background="@android:drawable/menu_full_frame"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ScrollView
+            android:id="@+id/scrollView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp">
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
-            <RelativeLayout
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="800dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/textView31"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/facebookbtn"
@@ -123,19 +160,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="2dp"
                     android:layout_marginTop="48dp"
+                    android:layout_marginEnd="242dp"
+                    android:layout_marginBottom="14dp"
                     android:text="Updates of the Week!"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
+                    android:id="@+id/linearLayout3"
                     android:layout_width="340dp"
                     android:layout_height="544dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginStart="100dp"
                     android:layout_marginTop="81dp"
-                    android:layout_marginEnd="23dp"
-                    android:orientation="vertical">
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/sharebtn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
 
                     <TextView
@@ -242,6 +290,12 @@
                         android:layout_height="wrap_content"
                         android:text="Check out the latest update for the Android App! New Version Released! Download from www,frequencyclub.azurewebsites.net"
                         android:textColor="@color/colorAccent" />
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Button" />
                 </LinearLayout>
 
                 <EditText
@@ -250,12 +304,12 @@
                     android:layout_height="183dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginBottom="116dp"
                     android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                     android:ems="10"
                     android:hint="If you have any update to share (eg. any upcoming technical event in town), please let us know."
-                    android:inputType="textMultiLine" />
+                    android:inputType="textMultiLine"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="310dp" />
 
                 <Button
                     android:id="@+id/sharebtn"
@@ -263,12 +317,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="18dp"
-                    android:layout_marginBottom="44dp"
-                    android:text="Share" />
+                    android:text="Share"
+                    tools:layout_editor_absoluteX="291dp"
+                    tools:layout_editor_absoluteY="587dp" />
 
 
-            </RelativeLayout>
+            </android.support.constraint.ConstraintLayout>
         </ScrollView>
 
         <ProgressBar
@@ -278,27 +332,39 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="196dp" />
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
+            app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+            app:layout_constraintStart_toStartOf="@+id/scrollView3"
+            app:layout_constraintTop_toTopOf="@+id/scrollView3" />
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_alignEnd="@+id/textView8"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-240dp"
-        android:layout_marginBottom="1dp"
-        android:background="@android:drawable/screen_background_dark_transparent">
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:drawable/screen_background_dark_transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/hometext"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="9dp"
             android:text="Home"
             android:textColor="@color/colorAccent"
             android:textSize="24sp" />
@@ -309,10 +375,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="65dp"
-            android:layout_marginBottom="21dp"
             android:layout_toEndOf="@+id/hometext"
-            android:text=" | Notifications"
+            android:text="|Notifications"
             android:textColor="@color/colorAccent" />
 
         <TextView
@@ -321,7 +385,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/notifcationbtn"
             android:layout_toEndOf="@+id/notifcationbtn"
-            android:text=" | Events"
+            android:text="|Events"
             android:textColor="@color/colorAccent" />
 
         <TextView
@@ -330,7 +394,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/notifcationbtn"
             android:layout_toEndOf="@+id/eventbtn"
-            android:text=" | Projects"
+            android:text="|Projects"
             android:textColor="@color/colorAccent" />
 
         <TextView
@@ -339,7 +403,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/notifcationbtn"
             android:layout_toEndOf="@+id/projectbtn"
-            android:text=" | About"
+            android:text="|About"
             android:textColor="@color/colorAccent" />
 
         <TextView
@@ -350,5 +414,5 @@
             android:layout_toEndOf="@+id/aboutbtn"
             android:text=" | Account"
             android:textColor="@color/colorAccent" />
-    </RelativeLayout>
-</RelativeLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public class TicketConfirmation extends AppCompatActivity {
 
+    TextView thanks;
+    TextView ename;
     public void onBackPressed(){
     }
     @Override
@@ -16,6 +18,10 @@ public class TicketConfirmation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_ticket_confirmation);
+        thanks=(TextView) findViewById(R.id.disclaimer);
+        thanks.setText(MainActivity.thankyou);
+        ename=(TextView) findViewById(R.id.eventname);
+        ename.setText(MainActivity.event_name);
         TextView name=(TextView) findViewById(R.id.nametext);
         name.setText(Workshop_Registration.name);
         TextView emailid=(TextView) findViewById(R.id.emailtext);

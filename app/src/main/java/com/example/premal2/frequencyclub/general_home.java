@@ -1,17 +1,21 @@
 package com.example.premal2.frequencyclub;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 public class general_home extends AppCompatActivity {
 
+    public static int seatsleft;
     public void onBackPressed(){
     }
     @Override
@@ -19,21 +23,49 @@ public class general_home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_general_home);
+        ImageView img=(ImageView) findViewById(R.id.logo);
+        Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
+        img.startAnimation(animFadeIn);
         Workshop_Registration.name="";
         Workshop_Registration.email="";
         Workshop_Registration.phone="";
         Workshop_Registration.onlinenum="";
         Workshop_Registration.transactionid="";
         Workshop_Registration.sem="";
+        Log.d("e","count ka value hai"+MainActivity.count);
+        Log.d("e","limit ka value hai"+MainActivity.limit);
+        Log.d("e","works1");
+        seatsleft=MainActivity.limit-MainActivity.count;
+        if(seatsleft<=0)
+            seatsleft=0;
+        Button workshopbtn=(Button) findViewById(R.id.workshopbtn);
+        if(MainActivity.enabled.equals("yes") && MainActivity.limitthere.equals("yes")) {
+            if (seatsleft > 1)
+                workshopbtn.setText("Register for Workshop (" + seatsleft + " seats left!)");
+            if (seatsleft == 1)
+                workshopbtn.setText("Register for Workshop (1 seat left!)");
+            if (seatsleft == 0)
+            {workshopbtn.setText("Register for Workshop (0 seats left!)");
+                workshopbtn.setTextColor(Color.RED);}
+            Log.d("e","works2");
+
+        //signinbtn.startAnimation(animFadeIn);
+
+
+        }
+        else
+            workshopbtn.setText("Register for Workshop");
         final Button signinbtn=(Button) findViewById(R.id.signinbtn);
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("e","works3");
                 startActivity(new Intent(general_home.this, signin.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         Button aboutusbtn=(Button) findViewById(R.id.aboutusbtn);
+        //aboutusbtn.startAnimation(animFadeIn);
         aboutusbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +73,7 @@ public class general_home extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
-        Button workshopbtn=(Button) findViewById(R.id.workshopbtn);
+        //workshopbtn.startAnimation(animFadeIn);
         workshopbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,14 +81,14 @@ public class general_home extends AppCompatActivity {
                 if(MainActivity.recieved==-1)
                 {
                     Log.d("e","happens2");
-                    Toast.makeText(general_home.this, "Unable to reach to our servers.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(general_home.this, "Communication Issues in connecting to our servers! Please check internet connection and restart the app!", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     Log.d("e","happens2"+MainActivity.enabled);
                     if(MainActivity.enabled.equals("no"))
                         Toast.makeText(general_home.this, "We are not accepting registrations right now.", Toast.LENGTH_SHORT).show();
-                    else if(MainActivity.count==MainActivity.limit)
+                    else if(MainActivity.count>=MainActivity.limit && MainActivity.limitthere.equals("yes"))
                         Toast.makeText(general_home.this, "Sorry, we are not accepting any more registrations at this moment.Kindly check again later.", Toast.LENGTH_SHORT).show();
                     else
                     {
