@@ -58,6 +58,11 @@ public class mainpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_mainpage);
+        Projects.project="";
+        newsfromuser=(EditText) findViewById(R.id.newsfromuser);
+        sharebtn=(Button) findViewById(R.id.sharebtn);
+        newsfromuser.setVisibility(View.INVISIBLE);
+        sharebtn.setVisibility(View.INVISIBLE);
         if(MainActivity.flag==0) {
             Toast.makeText(mainpage.this, "Signed in as " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
         //  Log.d("e",mAuth.getCurrentUser().getEmail()+"is currently logged in");
@@ -65,8 +70,6 @@ public class mainpage extends AppCompatActivity {
         }
         loading=(ProgressBar) findViewById(R.id.loading);
         loading.setVisibility(View.VISIBLE);
-        newsfromuser=(EditText) findViewById(R.id.newsfromuser);
-        sharebtn=(Button) findViewById(R.id.sharebtn);
         sharebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -193,6 +196,35 @@ public class mainpage extends AppCompatActivity {
                                        }
                 );
 
+        db.collection("user-project").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful())
+                {
+                    String tempproject="",tempemail="";
+                    int flag=0;
+                    {for(final DocumentSnapshot document: task.getResult())
+                    {
+                        Map<String,Object> x=document.getData();
+                        Set<Map.Entry<String,Object>> st=x.entrySet();
+                        for(Map.Entry<String,Object> me:st)
+                        {
+                            if(me.getKey().equals("project"))
+                                tempproject=me.getValue().toString();
+                            if(me.getKey().equals("email"))
+                                tempemail=me.getValue().toString();
+                        }
+                        if(tempemail.equals(Accountpage.email))
+                        {
+                            Projects.project=tempproject;
+                            Log.d("e",Projects.project+"ho gaya ab");
+                        }
+                    }}
+                }
+            }
+        });
+
+
         TextView aboutbtn=(TextView) findViewById(R.id.aboutbtn);
         aboutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,11 +242,30 @@ public class mainpage extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
+        TextView projectbtn=(TextView) findViewById(R.id.eventbtn);
+        projectbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(mainpage.this,Projects.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
         ImageView fb=(ImageView) findViewById(R.id.facebookbtn);
         ImageView linkedinbtn=findViewById(R.id.linkedinbtn);
         ImageView github=(ImageView) findViewById(R.id.githubbtn);
         ImageView browserbtn=findViewById(R.id.webbtn);
         ImageView mailbtn=(ImageView) findViewById(R.id.emailbtn);
+        ImageView instabtn=(ImageView) findViewById(R.id.instabtn);
+        instabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String facebookPageUrl = "https://instagram.com/frequencyclub_rv?utm_source=ig_profile_share&igshid=1fbgxx82k06c0";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookPageUrl));
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -349,6 +400,8 @@ public class mainpage extends AppCompatActivity {
                                                        }
                                                    }
                                                    loading.setVisibility(View.INVISIBLE);
+                                                   sharebtn.setVisibility(View.VISIBLE);
+                                                   newsfromuser.setVisibility(View.VISIBLE);
                                                }
                                            }
                                        }

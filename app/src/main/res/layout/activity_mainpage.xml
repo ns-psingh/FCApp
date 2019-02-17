@@ -14,11 +14,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintEnd_toStartOf="@+id/userfullname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47"
         app:srcCompat="@drawable/fclub2" />
 
     <TextView
@@ -26,14 +27,11 @@
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="105dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="Premal Singh"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/userpost"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="30dp"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,12 +41,10 @@
         android:layout_height="0dp"
         android:layout_below="@+id/userfullname"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="153dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="Core Team Member"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="14dp"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/userfullname"
         tools:text="Core Team Member" />
@@ -58,19 +54,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView3"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="2018-19"
         android:textColor="@color/colorPrimaryDark"
+        android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintEnd_toStartOf="@+id/userpost"
-        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.687" />
+        app:layout_constraintTop_toBottomOf="@+id/userpost" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -96,7 +87,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+
+            >
 
 
             <android.support.constraint.ConstraintLayout
@@ -104,10 +99,10 @@
                 android:layout_height="800dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="0dp"
+                    android:layout_height="29dp"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toTopOf="@+id/textView31"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -118,6 +113,13 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/download" />
+
+                    <ImageView
+                        android:id="@+id/instabtn"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/insta_icon" />
 
                     <ImageView
                         android:id="@+id/linkedinbtn"
@@ -160,30 +162,32 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="48dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="242dp"
-                    android:layout_marginBottom="14dp"
+                    android:focusable="true"
                     android:text="Updates of the Week!"
                     android:textColor="@color/colorAccent"
-                    app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+                    android:textSize="14dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+                    <requestFocus></requestFocus>
+
+                </TextView>
 
                 <LinearLayout
                     android:id="@+id/linearLayout3"
                     android:layout_width="340dp"
-                    android:layout_height="544dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="81dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/sharebtn"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toBottomOf="@+id/textView31">
 
 
                     <TextView
@@ -192,14 +196,15 @@
                         android:layout_height="wrap_content"
                         android:text="New Update"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/content1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Check out the latest update for the Android App! New Version Released! Download from www,frequencyclub.azurewebsites.net\n"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/heading2"
@@ -207,7 +212,7 @@
                         android:layout_height="wrap_content"
                         android:text="New Update"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/content2"
@@ -222,14 +227,15 @@
                         android:layout_height="wrap_content"
                         android:text="New Update"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/content3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Check out the latest update for the Android App! New Version Released! Download from www,frequencyclub.azurewebsites.net"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/heading4"
@@ -237,14 +243,15 @@
                         android:layout_height="wrap_content"
                         android:text="New Update"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/content4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Check out the latest update for the Android App! New Version Released! Download from www,frequencyclub.azurewebsites.net"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/heading5"
@@ -252,14 +259,15 @@
                         android:layout_height="wrap_content"
                         android:text="New Update"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/content5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Check out the latest update for the Android App! New Version Released! Download from www,frequencyclub.azurewebsites.net"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/heading6"
@@ -267,14 +275,15 @@
                         android:layout_height="wrap_content"
                         android:text="New Update"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/content6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Check out the latest update for the Android App! New Version Released! Download from www,frequencyclub.azurewebsites.net"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/heading7"
@@ -282,44 +291,50 @@
                         android:layout_height="wrap_content"
                         android:text="New Update"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/content7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Check out the latest update for the Android App! New Version Released! Download from www,frequencyclub.azurewebsites.net"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14dp" />
 
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Button" />
                 </LinearLayout>
 
                 <EditText
                     android:id="@+id/newsfromuser"
-                    android:layout_width="267dp"
+                    android:layout_width="331dp"
                     android:layout_height="183dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentBottom="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                     android:ems="10"
                     android:hint="If you have any update to share (eg. any upcoming technical event in town), please let us know."
                     android:inputType="textMultiLine"
-                    tools:layout_editor_absoluteX="24dp"
-                    tools:layout_editor_absoluteY="310dp" />
+                    android:textSize="18dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
                 <Button
                     android:id="@+id/sharebtn"
-                    android:layout_width="69dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="332dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:text="Share"
-                    tools:layout_editor_absoluteX="291dp"
-                    tools:layout_editor_absoluteY="587dp" />
+                    android:textSize="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newsfromuser" />
 
 
             </android.support.constraint.ConstraintLayout>
@@ -344,12 +359,10 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="37dp"
         android:layout_alignEnd="@+id/textView8"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:drawable/screen_background_dark_transparent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -367,7 +380,7 @@
             android:layout_alignParentTop="true"
             android:text="Home"
             android:textColor="@color/colorAccent"
-            android:textSize="24sp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/notifcationbtn"
@@ -377,7 +390,8 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/hometext"
             android:text="|Notifications"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/eventbtn"
@@ -385,17 +399,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/notifcationbtn"
             android:layout_toEndOf="@+id/notifcationbtn"
-            android:text="|Events"
-            android:textColor="@color/colorAccent" />
-
-        <TextView
-            android:id="@+id/projectbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/notifcationbtn"
-            android:layout_toEndOf="@+id/eventbtn"
-            android:text="|Projects"
-            android:textColor="@color/colorAccent" />
+            android:text="| Projects"
+            android:textColor="@color/colorAccent"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/aboutbtn"
@@ -404,7 +410,8 @@
             android:layout_alignTop="@+id/notifcationbtn"
             android:layout_toEndOf="@+id/projectbtn"
             android:text="|About"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/accountbtn"
@@ -413,6 +420,7 @@
             android:layout_alignTop="@+id/notifcationbtn"
             android:layout_toEndOf="@+id/aboutbtn"
             android:text=" | Account"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:textSize="14dp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

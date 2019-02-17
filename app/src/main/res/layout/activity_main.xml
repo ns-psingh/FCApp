@@ -23,7 +23,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="37dp"
         android:text="© Frequency Club. All rights reserved."
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/text_hello"
@@ -43,5 +44,18 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="105dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="1dp"
+        android:text="Please make sure display size  is set to default in your phone settings."
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="14dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

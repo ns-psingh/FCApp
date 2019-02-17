@@ -22,38 +22,38 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            >
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signin"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Firsttimelogin"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".mainpage"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Accountpage"
-            android:screenOrientation="portrait"
-            />
+        <activity
+            android:name=".signin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Firsttimelogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mainpage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Accountpage"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Aboutpage"
             android:label="@string/title_activity_aboutpage"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".aboutpg"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Notificationspage"
-            android:screenOrientation="portrait"
-            />
+        <activity
+            android:name=".aboutpg"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Notificationspage"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
@@ -65,26 +65,33 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".general_home"
-            android:screenOrientation="portrait"
-            />
+        <activity
+            android:name=".general_home"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".aboutus_general"
             android:label="@string/title_activity_aboutus_general"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".theaboutgeneral"
+        <activity
+            android:name=".theaboutgeneral"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Workshop_Registration"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Workshop_Registration2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TicketConfirmation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attendancepage"
             android:screenOrientation="portrait"
-            />
-        <activity android:name=".Workshop_Registration"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Workshop_Registration2"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".TicketConfirmation"
-            android:screenOrientation="portrait"
-            ></activity>
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity android:name=".Projects" />
+        <activity android:name=".Workspace_access" />
+        <activity android:name=".signin_iot"></activity>
     </application>
 
 </manifest>

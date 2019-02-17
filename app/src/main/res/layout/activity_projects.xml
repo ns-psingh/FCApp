@@ -5,21 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/e"
-    tools:context=".aboutpg"
-    tools:layout_editor_absoluteY="81dp">
+    tools:context=".Projects">
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="97dp"
-        android:layout_height="98dp"
+        android:layout_width="91dp"
+        android:layout_height="87dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47"
         app:srcCompat="@drawable/fclub2" />
 
     <TextView
         android:id="@+id/userfullname"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/imageView3"
@@ -32,7 +38,7 @@
     <TextView
         android:id="@+id/userpost"
         android:layout_width="wrap_content"
-        android:layout_height="26dp"
+        android:layout_height="0dp"
         android:layout_below="@+id/userfullname"
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/imageView3"
@@ -46,13 +52,14 @@
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView3"
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="2018-19"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/userpost" />
 
@@ -168,145 +175,27 @@
                         android:id="@+id/heading1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Who are we?"
+                        android:text="My Projects"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
                         android:textSize="18dp" />
 
                     <TextView
-                        android:id="@+id/content1"
+                        android:id="@+id/assigntext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="The Frequency Club of R.V. College of Engineering aims to deveop projects related with technologies such as Artiificial Intelligence,, Image Processing, Augmented and Virtual Reality, Internet of Things and participates in various hackathons."
+                        android:text="You have not been assigned any project. Please Contact any Core Team Member."
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
-                        android:textSize="14dp" />
+                        android:textSize="25dp" />
 
                     <TextView
-                        android:id="@+id/heading2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="What we do?"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:id="@+id/content2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="We implement projects in AI,ML,IoT,Image Processing, Automation, and other state-of-the-art  technologies.We also conduct introductory and advanced prototyping workshops  by the Industry people for the students to get hands-on experience  in the above mentioned subjects.\nWe plan off-campus visits for various competitions and hackathons. We do plan to attend tech fests in various colleges."
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="14dp" />
-
-                    <TextView
-                        android:id="@+id/heading3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Present Team"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:id="@+id/content3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Faculty Advisor - Prof. S. Venkatesh (EIE Dept.)\nTechnical Advisor - Prof. Vinay Hegde (CSE Dept.) \nTeam Captain - Auchinto Chatterjee\nTeam Captain (Financial) - Akash Kumar Ghanate\nCore Team Members - 8 \nSenior Engineers - 20+\nJunior Engineers -45+"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="14dp" />
-
-                    <TextView
-                        android:id="@+id/heading4"
+                        android:id="@+id/projectdescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18dp" />
+                        android:textSize="20dp" />
 
-                    <TextView
-                        android:id="@+id/heading5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Core Team (2018-19)"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:id="@+id/content5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Auchinto Chatterjee (Team Captain)\nAkash Kumar Ghanate (Team Captain,Financial)\nPremal Singh (Technical Head,Software)\nRamakrishna Makani(Technical Head,Hardware)\nVaishnavie Sangam (HR Head) \nRohan Sanghvi(Technical Coordinator)\nSaksham Lakhera(Technical Coordinator)\nPratyush Singh(Creative Works Head)"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="14dp" />
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Contact Us"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Phone: +91-9902426560, +91-9632520345\n\nAddress:\nRoom no. 408, Interdisciplinary Research Centre, \nR.V. College of Engineering,\nBangalore -560059"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="14dp" />
-
-                    <ImageView
-                        android:id="@+id/maplink"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        app:srcCompat="@drawable/gmap" />
-
-                    <TextView
-                        android:id="@+id/heading6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="About the App"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:id="@+id/content6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="This app has been developed by Frequency Club.\nFor any software errors, do let us know about it at frequencyclub@rvce.edu.in\nVersion: 0.9.0"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="14dp" />
-
-                    <TextView
-                        android:id="@+id/heading7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="\n\nDownload latest release from our website."
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:id="@+id/content7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="© Frequency Club. All rights reserved."
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="14dp" />
                 </LinearLayout>
 
 
@@ -315,7 +204,6 @@
 
 
     </android.support.constraint.ConstraintLayout>
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -358,7 +246,7 @@
             android:layout_toEndOf="@+id/notifcationbtn"
             android:text="| Projects"
             android:textColor="@color/colorAccent"
-            android:textSize="14dp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/aboutbtn"
@@ -368,7 +256,7 @@
             android:layout_toEndOf="@+id/eventbtn"
             android:text="|About"
             android:textColor="@color/colorAccent"
-            android:textSize="24dp" />
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/accountbtn"
@@ -380,4 +268,5 @@
             android:textColor="@color/colorAccent"
             android:textSize="14dp" />
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

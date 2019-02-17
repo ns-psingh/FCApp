@@ -15,7 +15,8 @@
         android:layout_alignParentStart="true"
         android:text="It is advised that you screenshot this."
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorPrimary"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/eventname"
@@ -26,11 +27,11 @@
         android:text="Frequency Club Presents NVIDIA Virtual Reality Workshop in Association with ISA RVCE"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp" />
+        android:textSize="24dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="216dp"
+        android:layout_height="230dp"
         android:layout_below="@+id/eventname"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
@@ -49,16 +50,18 @@
                 android:layout_weight="1"
                 android:text="Name:"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/nametext"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                 android:text="Premal Singh"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
         </LinearLayout>
 
@@ -74,16 +77,18 @@
                 android:layout_weight="1"
                 android:text="Email ID:"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/emailtext"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                 android:text="premals98@gmail.com"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
         </LinearLayout>
 
@@ -108,7 +113,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                 android:text="8982625174"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
         </LinearLayout>
 
@@ -124,7 +130,8 @@
                 android:layout_weight="1"
                 android:text="Semester:"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/semtext"
@@ -133,9 +140,11 @@
                 android:layout_weight="1"
                 android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                 android:text="4"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -148,7 +157,8 @@
                 android:layout_weight="1"
                 android:text="Paytm/Google Pay Number"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/paytmtext"
@@ -157,7 +167,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                 android:text="8982625174"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
         </LinearLayout>
 
@@ -173,16 +184,18 @@
                 android:layout_weight="1"
                 android:text="Transaction ID"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/tidtext"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                 android:text="09487918759814715897459"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
         </LinearLayout>
 
@@ -220,9 +233,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="63dp"
         android:text="Thank you for registering at NVidia VR Workshop. Your registration has been submitted successfully to our database. We will be sending confirmation to your email address shortly. Kindly note that, since seats are limited, and in case your registration is not within top 60, you will not be able to participate in the event, and your registration fee will be refunded to your respective number."
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorPrimary"
+        android:textSize="14dp" />
 
     <Button
         android:id="@+id/mainbtn"
@@ -264,7 +279,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="For any queries,"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -284,7 +300,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="frequencyclub@rvce.edu.in"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14dp" />
             </LinearLayout>
 
         </LinearLayout>

@@ -36,7 +36,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String version="1.0.0";
+    private String version="0.9.0";
     private FirebaseAuth mAuth;
     private FirebaseFirestore db=FirebaseFirestore.getInstance();
     public static int flag=0;

@@ -2,31 +2,78 @@ package com.example.premal2.frequencyclub;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class aboutpg extends AppCompatActivity {
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Map;
+import java.util.Set;
+
+public class Projects extends AppCompatActivity {
+
+    static String project;
+    FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_aboutpg);
+        setContentView(R.layout.activity_projects);
+        final TextView assigntext=(TextView) findViewById(R.id.assigntext);
+        final TextView projectdesc=(TextView) findViewById(R.id.projectdescription);
+        db=FirebaseFirestore.getInstance();
+        TextView aboutbtn=(TextView) findViewById(R.id.aboutbtn);
+        aboutbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Projects.this,aboutpg.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+            }
+        });
+        TextView notificationbtn=(TextView) findViewById(R.id.notifcationbtn);
+        notificationbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Projects.this,Notificationspage.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
+
+        TextView accountbtn=(TextView) findViewById(R.id.accountbtn);
+        accountbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Projects.this,Accountpage.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+        TextView homebtn=(TextView) findViewById(R.id.hometext);
+        homebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(Projects.this,mainpage.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
         ImageView fb=(ImageView) findViewById(R.id.facebookbtn);
         ImageView linkedinbtn=findViewById(R.id.linkedinbtn);
         ImageView github=(ImageView) findViewById(R.id.githubbtn);
         ImageView browserbtn=findViewById(R.id.webbtn);
         ImageView mailbtn=(ImageView) findViewById(R.id.emailbtn);
-        TextView userfull=(TextView) findViewById(R.id.userfullname);
-        TextView userpost=(TextView) findViewById(R.id.userpost);
-        userfull.setText(Accountpage.name);
-        userpost.setText(Accountpage.post);
-        TextView events=(TextView) findViewById(R.id.eventbtn);
         ImageView instabtn=(ImageView) findViewById(R.id.instabtn);
         instabtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,50 +84,6 @@ public class aboutpg extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
-        events.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(aboutpg.this,Projects.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-                //  Toast.makeText(aboutpg.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
-            }
-        });
-        TextView homepage=(TextView) findViewById(R.id.hometext);
-        TextView notificationbtn=(TextView) findViewById(R.id.notifcationbtn);
-        notificationbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(aboutpg.this,Notificationspage.class));
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-            }
-        });
-        homepage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(aboutpg.this,mainpage.class));
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-            }
-        });
-        TextView accountbtn=(TextView) findViewById(R.id.accountbtn);
-        accountbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(aboutpg.this,Accountpage.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
-        ImageView maplink=(ImageView) findViewById(R.id.maplink);
-        maplink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/place/Frequency+Club+RVCE/@12.9236525,77.5012081,15z/data=!4m5!3m4!1s0x0:0x6630a4d79ed10282!8m2!3d12.9236525!4d77.5012081"));
-                startActivity(intent);
-            }
-        });
-
-
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,5 +152,37 @@ public class aboutpg extends AppCompatActivity {
 
             }
         });
+
+        if(!project.equals(""));
+        {
+            db.collection("projects").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        String tempproject = "", tempemail = "";
+                        int flag = 0;
+                        {
+                            for (final DocumentSnapshot document : task.getResult()) {
+                                Map<String, Object> x = document.getData();
+                                Set<Map.Entry<String, Object>> st = x.entrySet();
+                                for (Map.Entry<String, Object> me : st) {
+                                    if (me.getKey().equals("desc"))
+                                        tempproject = me.getValue()+"";
+                                    if (me.getKey().equals("project"))
+                                        tempemail = me.getValue().toString();
+                                }
+                                if (tempemail.equals(project)) {
+                                    projectdesc.setText(Html.fromHtml(tempproject));
+                                    assigntext.setText("");
+                                    Log.d("e", Projects.project + tempproject);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
     }
 }

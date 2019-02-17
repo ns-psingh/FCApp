@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class general_home extends AppCompatActivity {
 
     public static int seatsleft;
+    Button iotbtn;
     public void onBackPressed(){
     }
     @Override
@@ -70,6 +71,15 @@ public class general_home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(general_home.this, theaboutgeneral.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+        iotbtn=(Button) findViewById(R.id.iotbtn);
+        iotbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(general_home.this,"Coming soon in next major update.",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(general_home.this,signin_iot.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });

@@ -2,6 +2,7 @@ package com.example.premal2.frequencyclub;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Accountpage extends AppCompatActivity {
 
@@ -29,6 +34,26 @@ public class Accountpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_accountpage);
+        if(Attendancepage.flag==1)
+        {
+            FirebaseFirestore db=FirebaseFirestore.getInstance();
+            Log.d("e","entered in this region");
+            db.collection("attendance")
+                    .add(Attendancepage.user)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d("e", "DocumentSnapshot added with ID: " + documentReference.getId());
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("e", "Error adding document", e);
+                        }
+                    });
+            Attendancepage.flag=0;
+        }
         TextView info=(TextView) findViewById(R.id.info);
         TextView home=(TextView) findViewById(R.id.hometext);
         ImageView fb=(ImageView) findViewById(R.id.facebookbtn);
@@ -38,34 +63,36 @@ public class Accountpage extends AppCompatActivity {
         ImageView mailbtn=(ImageView) findViewById(R.id.emailbtn);
         TextView userfull=(TextView) findViewById(R.id.userfullname);
         TextView userpost=(TextView) findViewById(R.id.userpost);
+
+        ImageView instabtn=(ImageView) findViewById(R.id.instabtn);
+        instabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String facebookPageUrl = "https://instagram.com/frequencyclub_rv?utm_source=ig_profile_share&igshid=1fbgxx82k06c0";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookPageUrl));
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
         userfull.setText(name);
         userpost.setText(post);
         Button attendancebtn=(Button) findViewById(R.id.attendancebtn);
         attendancebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
-            }
-        });
-        Button viewattendance=(Button) findViewById(R.id.viewdaybtn);
-        viewattendance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Accountpage.this,Attendancepage.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                //Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
             }
         });
         TextView events=(TextView) findViewById(R.id.eventbtn);
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
-            }
-        });
-        TextView projects=(TextView) findViewById(R.id.projectbtn);
-        projects.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(Accountpage.this,Projects.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                // Toast.makeText(Accountpage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
             }
         });
         TextView notificationbtn=(TextView) findViewById(R.id.notifcationbtn);

@@ -68,14 +68,10 @@ public class Notificationspage extends AppCompatActivity {
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Notificationspage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
-            }
-        });
-        TextView projects=(TextView) findViewById(R.id.projectbtn);
-        projects.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Notificationspage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(Notificationspage.this,Projects.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                //  Toast.makeText(Notificationspage.this, "This feature will be available in later updates.", Toast.LENGTH_SHORT).show();
             }
         });
         TextView userfullname=(TextView) findViewById(R.id.userfullname);
@@ -105,6 +101,16 @@ public class Notificationspage extends AppCompatActivity {
         ImageView browserbtn=findViewById(R.id.webbtn);
         ImageView mailbtn=(ImageView) findViewById(R.id.emailbtn);
 
+        ImageView instabtn=(ImageView) findViewById(R.id.instabtn);
+        instabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String facebookPageUrl = "https://instagram.com/frequencyclub_rv?utm_source=ig_profile_share&igshid=1fbgxx82k06c0";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookPageUrl));
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
         TextView accountbtn=(TextView) findViewById(R.id.accountbtn);
         accountbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -214,9 +220,9 @@ public class Notificationspage extends AppCompatActivity {
                                         Log.d("e",me.getKey());
                                         Log.d("e",me.getValue()+"");
                                         if(me.getKey().equals("sender"))
-                                            senders[count-i-1].setText("Message: "+me.getValue()+"");
+                                            senders[count-i-1].setText("Sender: "+me.getValue()+"");
                                         if(me.getKey().equals("message"))
-                                            messages[count-i-1].setText("Sender: "+me.getValue()+"");
+                                            messages[count-i-1].setText("Message: "+me.getValue()+"");
                                     }
                                     i++;
                                 }
@@ -238,9 +244,9 @@ public class Notificationspage extends AppCompatActivity {
                                         if(i<base)
                                             continue;
                                         if(me.getKey().equals("sender"))
-                                            senders[count-i-1].setText("Message: "+me.getValue()+"");
+                                            senders[count-i-1].setText("Sender: "+me.getValue()+"");
                                         if(me.getKey().equals("message"))
-                                            messages[count-i-1].setText("Sender: "+me.getValue()+"");
+                                            messages[count-i-1].setText("Message: "+me.getValue()+"");
                                     }
                                     i++;
                                 }

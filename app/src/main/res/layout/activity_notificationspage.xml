@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,28 +13,39 @@
         android:layout_height="87dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47"
         app:srcCompat="@drawable/fclub2" />
 
     <TextView
         android:id="@+id/userfullname"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="Premal Singh"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp" />
+        android:textSize="30dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/userpost"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_below="@+id/userfullname"
+        android:layout_marginStart="4dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="Core Team Member"
         android:textColor="@color/colorPrimary"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/userfullname"
         tools:text="Core Team Member" />
 
     <TextView
@@ -42,20 +53,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView3"
-        android:layout_marginStart="-1dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/imageView3"
         android:text="2018-19"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/userpost" />
+
 
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="422dp"
         android:layout_alignEnd="@+id/userpost"
         android:layout_alignParentTop="true"
         android:layout_marginTop="88dp"
-        android:layout_marginEnd="-169dp"
-        android:background="@android:drawable/menu_full_frame">
+        android:background="@android:drawable/menu_full_frame"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ProgressBar
             android:id="@+id/loadingnotifs"
@@ -82,7 +98,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="29dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -91,6 +107,13 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/download" />
+
+                    <ImageView
+                        android:id="@+id/instabtn"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/insta_icon" />
 
                     <ImageView
                         android:id="@+id/linkedinbtn"
@@ -145,8 +168,7 @@
                         android:text="You can scroll down to broadcast your own notification.\n"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
-
+                        android:textSize="18dp" />
 
 
                     <TextView
@@ -156,7 +178,7 @@
                         android:text="Last 10 Notifications"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/message1"
@@ -164,7 +186,9 @@
                         android:layout_height="wrap_content"
                         android:text="Message:"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18dp"
+                        />
 
                     <TextView
                         android:id="@+id/sender1"
@@ -172,14 +196,18 @@
                         android:layout_height="wrap_content"
                         android:text="Sender:"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18dp"
+                        />
 
                     <TextView
                         android:id="@+id/blank1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14dp"
+                        />
 
                     <TextView
                         android:id="@+id/message2"
@@ -187,7 +215,9 @@
                         android:layout_height="wrap_content"
                         android:text="Message:"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18dp"
+                        />
 
                     <TextView
                         android:id="@+id/sender2"
@@ -195,14 +225,18 @@
                         android:layout_height="wrap_content"
                         android:text="Sender:"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18dp"
+                        />
 
                     <TextView
                         android:id="@+id/blank2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14dp"
+                        />
 
                     <TextView
                         android:id="@+id/message3"
@@ -210,6 +244,7 @@
                         android:layout_height="wrap_content"
                         android:text="Message:"
                         android:textAlignment="viewStart"
+                        android:textSize="18dp"
                         android:textColor="@color/colorAccent" />
 
                     <TextView
@@ -217,6 +252,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sender:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -225,6 +261,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
+                        android:textSize="14dp"
                         android:textColor="@color/colorAccent" />
 
                     <TextView
@@ -232,6 +269,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Message:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -240,6 +278,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sender:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -248,6 +287,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
+                        android:textSize="14dp"
                         android:textColor="@color/colorAccent" />
 
                     <TextView
@@ -255,6 +295,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Message:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -263,6 +304,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sender:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -271,6 +313,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
+                        android:textSize="14dp"
                         android:textColor="@color/colorAccent" />
 
                     <TextView
@@ -278,6 +321,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Message:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -285,6 +329,7 @@
                         android:id="@+id/sender6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="18dp"
                         android:text="Sender:"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
@@ -293,6 +338,7 @@
                         android:id="@+id/blank6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="14dp"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent" />
 
@@ -301,6 +347,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Message:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -309,6 +356,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sender:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -316,6 +364,7 @@
                         android:id="@+id/blank7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="14dp"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent" />
 
@@ -324,6 +373,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Message:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -332,11 +382,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sender:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
                     <TextView
                         android:id="@+id/blank8"
+                        android:textSize="14dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
@@ -347,6 +399,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Message:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -355,6 +408,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sender:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -363,6 +417,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
+                        android:textSize="14dp"
                         android:textColor="@color/colorAccent" />
 
                     <TextView
@@ -370,6 +425,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Message:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -378,6 +434,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sender:"
+                        android:textSize="18dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccent" />
 
@@ -386,7 +443,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
+                        android:textSize="14dp"
                         android:textColor="@color/colorAccent" />
+
                     <EditText
                         android:id="@+id/broadcast"
                         android:layout_width="match_parent"
@@ -394,14 +453,17 @@
                         android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                         android:ems="10"
                         android:hint="You can notify all club members, in case anything important is there. Kindly do not send spam notifications."
-                        android:inputType="textMultiLine" />
+                        android:inputType="textMultiLine"
+                        android:textSize="18dp" />
 
                     <Button
                         android:id="@+id/notifybtn"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="@color/colorAccent"
-                        android:text="Notify" />
+
+                        android:text="Notify"
+                        android:textSize="14dp" />
 
                 </LinearLayout>
 
@@ -411,14 +473,21 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
         android:layout_alignEnd="@+id/textView8"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-240dp"
-        android:layout_marginBottom="1dp"
-        android:background="@android:drawable/screen_background_dark_transparent">
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:drawable/screen_background_dark_transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
 
         <TextView
             android:id="@+id/hometext"
@@ -426,10 +495,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="12dp"
-            android:text="Home |"
-            android:textColor="@color/colorAccent" />
+            android:text="Home"
+            android:textColor="@color/colorAccent"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/notifcationbtn"
@@ -437,56 +505,39 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="44dp"
-            android:layout_marginBottom="19dp"
             android:layout_toEndOf="@+id/hometext"
-            android:text="Notifications"
+            android:text="|Notifications"
             android:textColor="@color/colorAccent"
-            android:textSize="22sp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/eventbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/notifcationbtn"
-            android:layout_marginStart="-1dp"
-            android:layout_marginBottom="5dp"
             android:layout_toEndOf="@+id/notifcationbtn"
-            android:text=" | Events"
-            android:textColor="@color/colorAccent" />
-
-        <TextView
-            android:id="@+id/projectbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/notifcationbtn"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="6dp"
-            android:layout_toEndOf="@+id/eventbtn"
-            android:text=" | Projects"
-            android:textColor="@color/colorAccent" />
+            android:text="| Projects"
+            android:textColor="@color/colorAccent"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/aboutbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/notifcationbtn"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="7dp"
             android:layout_toEndOf="@+id/projectbtn"
             android:text="|About"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/accountbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/notifcationbtn"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="9dp"
             android:layout_toEndOf="@+id/aboutbtn"
-            android:text="|Account"
+            android:text=" | Account"
             android:textColor="@color/colorAccent"
-            android:textSize="12sp" />
-    </RelativeLayout>
-</RelativeLayout>
+            android:textSize="14dp" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -14,15 +14,16 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/colorAccent"
         android:text="Register for Workshop"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/signinbtn"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <Button
         android:id="@+id/signinbtn"
@@ -31,15 +32,16 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/colorAccent"
-        android:text="Sign in to the app (Exclusive to Club Members)"
+        android:text="Sign in \n(Exclusive to Club Members only)"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        app:layout_constraintBottom_toTopOf="@+id/aboutusbtn"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workshopbtn" />
 
     <Button
         android:id="@+id/aboutusbtn"
@@ -48,15 +50,19 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="184dp"
+        android:layout_marginBottom="196dp"
         android:background="@color/colorAccent"
         android:text="About Us"
         android:textColor="@color/colorPrimary"
+        android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signinbtn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -120,5 +126,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/clublogoblack" />
+
+    <Button
+        android:id="@+id/iotbtn"
+        android:layout_width="138dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:drawable/spinner_background"
+        android:text="IoT Access\nto the\nFC Workspace"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutusbtn" />
 
 </android.support.constraint.ConstraintLayout>

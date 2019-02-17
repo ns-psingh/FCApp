@@ -40,10 +40,8 @@ public class Workshop_Registration2 extends AppCompatActivity implements Adapter
     Spinner paymentmethod;
     CheckBox sel;
     FirebaseFirestore db;
-    ProgressBar loading;
     TextView eventname;
     TextView eventfee;
-    Button back3;
     int checked=0;
     public void onBackPressed(){
         Workshop_Registration.onlinenum=paymentnum.getText().toString();
@@ -79,10 +77,6 @@ public class Workshop_Registration2 extends AppCompatActivity implements Adapter
         transactionid.setText(Workshop_Registration.transactionid);
         paymentmethod=(Spinner) findViewById(R.id.payment);
         sel=(CheckBox) findViewById(R.id.confirmationbtn);
-        loading=(ProgressBar) findViewById(R.id.loading);
-        loading.setVisibility(View.INVISIBLE);
-        back3=(Button) findViewById(R.id.backgroundbtn);
-        back3.setVisibility(View.INVISIBLE);
         List<String> options=new ArrayList<String>();
         options.add("Select Payment Method");
         options.add("Paytm");
@@ -134,8 +128,6 @@ public class Workshop_Registration2 extends AppCompatActivity implements Adapter
                             countdoc.put("count",MainActivity.count+1);
                             db.collection("workshop_count").document("count").set(countdoc);
                             submitbtn.setVisibility(View.INVISIBLE);
-                            back3.setVisibility(View.VISIBLE);
-                            loading.setVisibility(View.VISIBLE);
                             Workshop_Registration.onlinenum = paymentnum.getText().toString();
                             Workshop_Registration.paymentmethod = paymentmethod.getSelectedItem().toString();
                             Workshop_Registration.transactionid = transactionid.getText().toString();
